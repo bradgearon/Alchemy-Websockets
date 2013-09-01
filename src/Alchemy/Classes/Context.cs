@@ -1,8 +1,12 @@
 using System;
 using System.Net.Sockets;
+using System.Reflection;
 using System.Threading;
 using Alchemy.Handlers;
 using Alchemy.Handlers.WebSocket;
+#if !UNITY
+using log4net;
+#endif
 
 namespace Alchemy.Classes
 {
@@ -11,13 +15,15 @@ namespace Alchemy.Classes
 /// </summary>
     public class Context : IDisposable
     {
-        //private static readonly ILog logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+        #if !UNITY
+        private static readonly ILog logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+        #endif
 
         /// <summary>
         /// The exported version of this context.
         /// </summary>
         public readonly UserContext UserContext;
-
+        
         /// <summary>
         /// The buffer used for accepting raw data from the socket.
         /// </summary>
@@ -146,7 +152,9 @@ namespace Alchemy.Classes
         /// </summary>
         public void Disconnect()
         {
-            //logger.Debug("Disconnected in " + Environment.StackTrace);
+#if !UNITY
+            logger.Debug("Disconnected in " + Environment.StackTrace);
+#endif
             Connected = false;
         }
 
