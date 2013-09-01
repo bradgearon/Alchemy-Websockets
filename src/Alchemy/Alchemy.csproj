@@ -10,9 +10,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Alchemy</RootNamespace>
     <AssemblyName>Alchemy</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <TargetFrameworkProfile>Unity Full v3.5</TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,7 +44,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release-Unity\</OutputPath>
-    <DefineConstants>TRACE;UNITY</DefineConstants>
+    <DefineConstants>TRACE;UNITY;UNITY_4</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -64,6 +64,16 @@
   <ItemGroup>
     <Compile Include="AccessPolicyServer.cs" />
     <Compile Include="Classes\Context.cs" />
+    <Compile Include="corlib-35-support\AggregateException.cs" />
+    <Compile Include="corlib-35-support\CancellationToken.cs" />
+    <Compile Include="corlib-35-support\CancellationTokenRegistration.cs" />
+    <Compile Include="corlib-35-support\ConcurrentDictionary.cs" />
+    <Compile Include="corlib-35-support\ConcurrentQueue.cs" />
+    <Compile Include="corlib-35-support\CancellationTokenSource.cs" />
+    <Compile Include="corlib-35-support\SemaphoreSlim.cs" />
+    <Compile Include="corlib-35-support\SpinWait.cs" />
+    <Compile Include="corlib-35-support\SplitOrderedList.cs" />
+    <Compile Include="corlib-35-support\Watch.cs" />
     <Compile Include="Handlers\Authentication.cs" />
     <Compile Include="Handlers\IAuthentication.cs" />
     <Compile Include="Handlers\WebSocket\DataFrame.cs" />
@@ -83,6 +93,7 @@
     <Compile Include="Handlers\WebSocket\WebSocketHandler.cs" />
     <Compile Include="HttpCookie.cs" />
     <Compile Include="HttpCookieCollection.cs" />
+    <Compile Include="corlib-35-support\IConcurrentCollection.cs" />
     <Compile Include="TcpServer.cs" />
     <Compile Include="WebSocketClient.cs" />
     <Compile Include="WebSocketServer.cs" />
